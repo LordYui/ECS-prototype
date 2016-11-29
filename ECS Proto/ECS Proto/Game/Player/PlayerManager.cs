@@ -18,9 +18,9 @@ namespace ECS_Proto.Game.Player
             debugTree = new Tree();
         }
 
-        public override void Update()
+        public override void Update(float delta)
         {
-            base.Update();
+            
         }
     }
 }

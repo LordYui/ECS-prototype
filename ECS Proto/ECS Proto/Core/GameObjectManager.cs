@@ -44,11 +44,11 @@ namespace ECS_Proto.Core
             g.Start();
         }
 
-        public void Update()
+        public void Update(float delta)
         {
             foreach (BaseObject g in goList)
             {
-                g.Update();
+                g.Update(delta);
             }
         }
     }

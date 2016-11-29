@@ -13,11 +13,25 @@ namespace ECS_Proto.Game.Player
 {
     class PlayerObject : BaseObject
     {
+        Transform transform;
         public override void Start()
         {
             IComponent[] comps = this.AddComponentsFromArchetype("Player");
             RenderComp r = this.GetComponent<RenderComp>();
             r.Char = '@';
+            transform = GetComponent<Transform>();
+        }
+
+        float timer = 0;
+        public override void Update(float delta)
+        {
+            if (timer <= 1)
+                timer += delta;
+            else
+            {
+                timer = 0;
+                transform.Position += new OpenTK.Vector2(1, 0);
+            }
         }
     }
 }

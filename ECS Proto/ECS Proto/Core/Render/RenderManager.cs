@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using SunshineConsole;
 using ECS_Proto.Core.Component;
+using OpenTK.Graphics;
 
 namespace ECS_Proto.Core.Render
 {
@@ -21,6 +22,7 @@ namespace ECS_Proto.Core.Render
         public void Update()
         {
             RenderContract[] renderBuf = goManager.GetRenderers();
+            ClearWindow();
             foreach(RenderContract rC in renderBuf)
             {
                 Transform t = rC.Transform;
@@ -28,6 +30,17 @@ namespace ECS_Proto.Core.Render
                 consoleWindow.Write((int)t.Position.X, (int)t.Position.Y, r.Char, r.Foreground, r.Background);
             }
             consoleWindow.WindowUpdate();
+        }
+
+        void ClearWindow()
+        {
+            for(int x = 0; x < consoleWindow.Cols; x++)
+            {
+                for (int y = 0; y < consoleWindow.Rows; y++)
+                {
+                    consoleWindow.Write(y, x, ' ', Color4.Black);
+                }
+            }
         }
     }
 }

@@ -21,7 +21,7 @@ namespace ECS_Proto.Game
 
         public override void Update(float delta)
         {
-            playerManager.Update();
+            playerManager.Update(delta);
         }
     }
 }

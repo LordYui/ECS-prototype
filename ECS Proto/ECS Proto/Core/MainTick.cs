@@ -34,7 +34,7 @@ namespace ECS_Proto.Core
                 DateTime start = DateTime.Now;
                 // Do stuff
                 gameManager.Update((float)computedDeltaTime);
-                goManager.Update();
+                goManager.Update((float)computedDeltaTime);
                 renderManager.Update();
                 DateTime end = DateTime.Now;
 
