@@ -1,22 +1,19 @@
 ﻿using ECS_Proto.Core;
+using ECS_Proto.Core.Render;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ECS_Proto.Game.Player
+namespace ECS_Proto.Game.GameObjects
 {
-    class PlayerManager : BaseObject
+    class Floor : BaseObject
     {
-        PlayerObject Player;
         public override void Start()
         {
-            Player = new PlayerObject();
-        }
-
-        public override void Update(float delta)
-        {
+            this.AddComponentsFromArchetype("Floor");
+            GetComponent<RenderComp>().Char = '.';
         }
     }
 }

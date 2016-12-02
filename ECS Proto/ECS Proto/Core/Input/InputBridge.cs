@@ -49,5 +49,10 @@ namespace ECS_Proto.Core.Input
             if(!pressedKeys.Contains(e.Key))
                 pressedKeys.Add(e.Key);
         }
+
+        public bool IsKeyDown(Key k)
+        {
+            return pressedKeys.Contains(k);
+        }
     }
 }

@@ -31,7 +31,7 @@ namespace ECS_Proto.Core.Injector
                 Type injT = paramInf.ParameterType;
                 foreach (object o in injectableObjects)
                 {
-                    if (o.GetType() == injT)
+                    if (o.GetType() == injT && !toInj.Contains(o.GetType()))
                         toInj.Add(o);
                 }
             }

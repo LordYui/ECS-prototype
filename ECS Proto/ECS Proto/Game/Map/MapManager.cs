@@ -5,18 +5,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ECS_Proto.Game.Player
+namespace ECS_Proto.Game.Map
 {
-    class PlayerManager : BaseObject
+    class MapManager : BaseObject
     {
-        PlayerObject Player;
+        MapLoader mapLoader;
+        BaseObject[,] map;
         public override void Start()
         {
-            Player = new PlayerObject();
-        }
-
-        public override void Update(float delta)
-        {
+            mapLoader = new Map.MapLoader();
+            map = mapLoader.LoadAndParseMap();
         }
     }
 }

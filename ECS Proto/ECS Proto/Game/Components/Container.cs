@@ -1,22 +1,19 @@
 ﻿using ECS_Proto.Core;
+using ECS_Proto.Core.Component;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ECS_Proto.Game.Player
+namespace ECS_Proto.Game.Components
 {
-    class PlayerManager : BaseObject
+    class Container : IComponent
     {
-        PlayerObject Player;
+        public List<BaseObject> Content;
         public override void Start()
         {
-            Player = new PlayerObject();
-        }
-
-        public override void Update(float delta)
-        {
+            Content = new List<BaseObject>();
         }
     }
 }

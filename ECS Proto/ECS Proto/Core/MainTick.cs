@@ -22,7 +22,6 @@ namespace ECS_Proto.Core
             renderManager = new Render.RenderManager(goManager);
             inputBridge = new Input.InputBridge(renderManager);
             gameManager = new Game.GameManager();
-            gameManager.Start();
             Update();
         }
         double computedDeltaTime = 0;

@@ -63,13 +63,25 @@
     <Compile Include="Core\Render\RenderManager.cs" />
     <Compile Include="Entry.cs" />
     <Compile Include="Game\CompArchetype.cs" />
+    <Compile Include="Game\Components\Container.cs" />
+    <Compile Include="Game\Components\Unmovable.cs" />
     <Compile Include="Game\GameManager.cs" />
-    <Compile Include="Game\GameObjects\World\Tree.cs" />
+    <Compile Include="Game\GameObjects\Floor.cs" />
+    <Compile Include="Game\GameObjects\Space.cs" />
+    <Compile Include="Game\GameObjects\Wall.cs" />
+    <Compile Include="Game\Input\FocusManager.cs" />
+    <Compile Include="Game\Input\InputFocusStruct.cs" />
     <Compile Include="Game\Input\InputManager.cs" />
+    <Compile Include="Game\Map\MapLoader.cs" />
+    <Compile Include="Game\Map\MapManager.cs" />
     <Compile Include="Game\Player\PlayerManager.cs" />
     <Compile Include="Game\Player\PlayerObject.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="map.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

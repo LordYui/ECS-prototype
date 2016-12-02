@@ -1,6 +1,7 @@
 ﻿using ECS_Proto.Core;
 using ECS_Proto.Core.Component;
 using ECS_Proto.Core.Render;
+using ECS_Proto.Game.Components;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,11 +18,27 @@ namespace ECS_Proto.Game
             AddArchetype("Entity", typeof(RenderComp), typeof(Transform));
             AddArchetype("Player", GetArchetypeComponent("Entity"));
             AddArchetype("WorldObject", GetArchetypeComponent("Entity"));
+            AddArchetype("Wall", BuildArchetypeHierarchy(new string[] { "WorldObject" }, typeof(Unmovable)));
+            AddArchetype("Floor", BuildArchetypeHierarchy(new string[] { "WorldObject" }, typeof(Unmovable), typeof(Container)));
         }
 
-        public static void AddArchetype(string n, params Type[] t)
+        private static void AddArchetype(string n, params Type[] t)
         {
             compArchDict.Add(n, t);
+        }
+
+        private static Type[] BuildArchetypeHierarchy(string[] parents, params Type[] t)
+        {
+            List<Type> retTy = new List<Type>();
+            foreach(string p in parents)
+            {
+                retTy.AddRange(GetArchetypeComponent(p));
+            }
+            foreach(Type ty in t)
+            {
+                retTy.Add(ty);
+            }
+            return retTy.ToArray();
         }
 
         public static Type[] GetArchetypeComponent(string n)
