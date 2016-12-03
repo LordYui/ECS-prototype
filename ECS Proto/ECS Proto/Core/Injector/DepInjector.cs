@@ -17,7 +17,7 @@ namespace ECS_Proto.Core.Injector
                 injectableObjects.Add(o);
         }
 
-        public static void Inject(this BaseObject g, bool baseType = false)
+        public static void Inject(this object g, bool baseType = false)
         {
             Type t = g.GetType();
             if (baseType)

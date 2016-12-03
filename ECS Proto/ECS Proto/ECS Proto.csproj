@@ -51,13 +51,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Core\Component\GUI\Label.cs" />
-    <Compile Include="Core\Component\GUI\UIRenderComp.cs" />
+    <Compile Include="Core\GUI\Label.cs" />
+    <Compile Include="Core\GUI\GUIObject.cs" />
     <Compile Include="Core\Component\IComponent.cs" />
     <Compile Include="Core\BaseObject.cs" />
     <Compile Include="Core\Component\Physic.cs" />
     <Compile Include="Core\Component\Transform.cs" />
     <Compile Include="Core\GameObjectManager.cs" />
+    <Compile Include="Core\GUI\UIManager.cs" />
+    <Compile Include="Core\GUI\UIRenderStruct.cs" />
     <Compile Include="Core\Injector\DepInjector.cs" />
     <Compile Include="Core\Input\InputBridge.cs" />
     <Compile Include="Core\MainTick.cs" />

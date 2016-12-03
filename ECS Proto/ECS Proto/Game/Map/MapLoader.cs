@@ -47,6 +47,8 @@ namespace ECS_Proto.Game.Map
                 case '~':
                     retBo = new Space();
                     break;
+                default:
+                    return null;
             }
             retBo.GetComponent<Transform>().Position = pos;
             return retBo;

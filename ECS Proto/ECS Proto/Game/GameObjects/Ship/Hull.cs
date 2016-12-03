@@ -1,5 +1,6 @@
 ﻿using ECS_Proto.Core;
 using ECS_Proto.Core.Component;
+using ECS_Proto.Core.Render;
 using ECS_Proto.Game.Components;
 using System;
 using System.Collections.Generic;
@@ -19,6 +20,8 @@ namespace ECS_Proto.Game.GameObjects.Ship
             mC.Description = "Thick metal plates, just inbetween space and you.";
             Physic pC = this.GetComponent<Physic>();
             pC.PassThrough = false;
+            RenderComp rC = this.GetComponent<RenderComp>();
+            rC.Char = '#';
         }
     }
 }
