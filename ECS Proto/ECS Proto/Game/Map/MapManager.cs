@@ -1,4 +1,5 @@
 ﻿using ECS_Proto.Core;
+using ECS_Proto.Core.Component;
 using ECS_Proto.Core.Injector;
 using OpenTK;
 using System;
@@ -22,18 +23,34 @@ namespace ECS_Proto.Game.Map
             DepInjector.RegisterInjectable(this);
         }
 
+        public bool IsPassThrough(Vector2 v, BaseObject caller = null)
+        {
+            Tile t = GetTileAtPos(v);
+            if (!t.mapTile.GetComponent<Physic>().isPassThrough(caller))
+                return false;
+            foreach (BaseObject b in t.entitiesOnTile)
+                if (!b.GetComponent<Physic>().isPassThrough(caller))
+                    return false;
+            return true;
+        }
+
         public BaseObject GetMapAtPos(Vector2 v)
         {
-            if (v.X > map.GetLength(0) || v.Y > map.GetLength(1) || v.X < 0 || v.Y < 0)
-                throw new ArgumentOutOfRangeException();
-            return map[(int)v.X, (int)v.Y];
+            foreach(BaseObject b in map)
+            {
+                if(b.GetComponent<Transform>()?.Position == v)
+                {
+                    return b;
+                }
+            }
+            return null;
         }
 
         public Tile GetTileAtPos(Vector2 v)
         {
             if (v.X > map.GetLength(0) || v.Y > map.GetLength(1) || v.X < 0 || v.Y < 0)
                 throw new ArgumentOutOfRangeException();
-            BaseObject bTile = map[(int)v.X, (int)v.Y];
+            BaseObject bTile = GetMapAtPos(v);
             BaseObject[] eTile = mapEntManager.getEntitiesAtPosition(v);
             return new Tile(bTile, eTile);
         }

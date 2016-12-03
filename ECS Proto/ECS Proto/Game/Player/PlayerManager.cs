@@ -3,6 +3,7 @@ using ECS_Proto.Core.Component;
 using ECS_Proto.Core.Injector;
 using ECS_Proto.Game.Input;
 using ECS_Proto.Game.Map;
+using OpenTK;
 using OpenTK.Input;
 using System;
 using System.Collections.Generic;
@@ -15,39 +16,26 @@ namespace ECS_Proto.Game.Player
     class PlayerManager : BaseObject
     {
         PlayerObject Player;
+        PlayerInput playerInput;
         MapManager mapManager;
         public override void Start()
         {
             Player = new PlayerObject();
+            plyT = Player.GetComponent<Transform>();
             this.Inject();
         }
 
-        void OnInject(InputManager input, MapManager map)
+        void OnInject(MapManager map)
         {
-            input.RegisterInput(this, 255);
-            plyT = Player.GetComponent<Transform>();
-
             mapManager = map;
+            playerInput = new Game.Player.PlayerInput(this);
         }
 
         Transform plyT;
-        void OnKeyDown(Key k)
+        public void MovePlayer(Vector2 targetPos)
         {
-            switch (k)
-            {
-                case Key.D:
-                    plyT.Position += new OpenTK.Vector2(1, 0);
-                    break;
-                case Key.S:
-                    plyT.Position += new OpenTK.Vector2(0, 1);
-                    break;
-                case Key.Q:
-                    plyT.Position += new OpenTK.Vector2(-1, 0);
-                    break;
-                case Key.Z:
-                    plyT.Position += new OpenTK.Vector2(0, -1);
-                    break;
-            }
+            if (mapManager.IsPassThrough(plyT.Position + targetPos, Player))
+                plyT.Position += targetPos;
         }
 
         public override void Update(float delta)

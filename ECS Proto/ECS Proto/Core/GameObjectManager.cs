@@ -1,6 +1,7 @@
 ﻿using ECS_Proto.Core.Component;
 using ECS_Proto.Core.Injector;
 using ECS_Proto.Core.Render;
+using ECS_Proto.Game.Components;
 using ECS_Proto.Game.GameObjects;
 using System;
 using System.Collections.Generic;
@@ -26,7 +27,7 @@ namespace ECS_Proto.Core
 
         void ClearEntityBuffer()
         {
-
+            entityBuffer.Clear();
         }
 
         public RenderContract[] GetRenderers()
@@ -38,12 +39,15 @@ namespace ECS_Proto.Core
                 RenderComp r = b.GetComponent<RenderComp>();
                 Transform t = b.GetComponent<Transform>();
                 if (r != null)
-                    retCtrc.Add(new RenderContract(t, r));
-                if (!entityBuffer.Contains(b))
                 {
-                    entityBuffer.Add(b);
-                    if(!updateEntBuf)
-                        updateEntBuf = true;
+                    retCtrc.Add(new RenderContract(t, r));
+                    if (!entityBuffer.Contains(b))
+                    {
+                        if (!b.HasComponent<WorldTile>())
+                            entityBuffer.Add(b);
+                        if (!updateEntBuf)
+                            updateEntBuf = true;
+                    }
                 }
             }
             if (updateEntBuf)

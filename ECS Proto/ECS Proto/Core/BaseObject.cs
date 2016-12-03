@@ -39,6 +39,9 @@ namespace ECS_Proto.Core
         public IComponent AddComponent(Type t)
         {
             IComponent retComp = Activator.CreateInstance(t) as IComponent;
+            if (compList.Count(c => c.GetType() == t) > 0)
+                throw new ArgumentException("Component already added to BaseObject.");
+
             compList.Add(retComp);
             retComp.baseObject = this;
             retComp.Start();
@@ -77,6 +80,18 @@ namespace ECS_Proto.Core
             }
             return null;
         }
+
+        public void RemoveComponent<T>() where T : IComponent
+        {
+            foreach(IComponent c in compList)
+            {
+                if(c is T)
+                {
+                    compList.Remove(c);
+                }
+            }
+        }
+
     }
 
     static class BaseObjectE

@@ -9,5 +9,9 @@ namespace ECS_Proto.Game.Components
 {
     class Electrified : IComponent
     {
+        float containedPower;
+        float neededPower;
+
+        float powerInput;
     }
 }

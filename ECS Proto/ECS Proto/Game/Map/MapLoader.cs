@@ -8,6 +8,7 @@ using System.IO;
 using ECS_Proto.Game.GameObjects;
 using OpenTK;
 using ECS_Proto.Core.Component;
+using ECS_Proto.Game.GameObjects.Ship;
 
 namespace ECS_Proto.Game.Map
 {
@@ -41,7 +42,7 @@ namespace ECS_Proto.Game.Map
                     retBo = new Floor();
                     break;
                 case '#':
-                    retBo = new Wall();
+                    retBo = new Hull();
                     break;
                 case '~':
                     retBo = new Space();

@@ -16,9 +16,11 @@ namespace ECS_Proto.Game
         static Dictionary<string, Type[]> compArchDict = new Dictionary<string, Type[]>();
         static CompArchetype()
         {
-            AddArchetype("Entity", typeof(RenderComp), typeof(Transform));
+            AddArchetype("Entity", typeof(RenderComp), typeof(Transform), typeof(Metadata), typeof(Physic));
+   
             AddArchetype("Player", BuildArchetypeHierarchy(new string[] { "Entity" }, typeof(Human)));
-            AddArchetype("WorldObject", BuildArchetypeHierarchy(new string[] { "Entity" }, typeof()));
+
+            AddArchetype("WorldObject", BuildArchetypeHierarchy(new string[] { "Entity" }, typeof(WorldTile)));
             AddArchetype("Wall", BuildArchetypeHierarchy(new string[] { "WorldObject" }, typeof(Unmovable)));
             AddArchetype("Floor", BuildArchetypeHierarchy(new string[] { "WorldObject" }, typeof(Unmovable), typeof(Container)));
         }

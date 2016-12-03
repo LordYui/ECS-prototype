@@ -16,6 +16,8 @@ namespace ECS_Proto.Game.Input
         public void ForwardInput(Key k)
         {
             // todo: take/give focus n shit
+            if (focusList.Count == 0)
+                return;
             InputFocusStruct sF = focusList[0];
             foreach(MethodInfo inf in sF.methodCallbacks)
             {
