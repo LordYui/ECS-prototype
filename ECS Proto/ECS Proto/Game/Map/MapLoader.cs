@@ -17,14 +17,14 @@ namespace ECS_Proto.Game.Map
         public BaseObject[,] LoadAndParseMap()
         {
             string[] mapLines = File.ReadAllLines(Path);
-            BaseObject[,] retBo = new BaseObject[mapLines.Length, mapLines[0].Length];
+            BaseObject[,] retBo = new BaseObject[mapLines[0].Length, mapLines.Length];
             for (int y = 0; y < mapLines.Length; y++)
             {
                 string line = mapLines[y];
                 for (int x = 0; x < line.Length; x++)
                 {
                     char c = line[x];
-                    retBo[y, x] = GetTile(c, new Vector2(y, x));
+                    retBo[x, y] = GetTile(c, new Vector2(x, y));
                 }
             }
 

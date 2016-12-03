@@ -8,6 +8,7 @@ namespace ECS_Proto.Core.Component
 {
     abstract class IComponent
     {
+        public BaseObject baseObject;
         public virtual void Start() { }
         public virtual void Update() { }
     }

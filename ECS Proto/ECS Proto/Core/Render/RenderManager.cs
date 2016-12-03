@@ -27,7 +27,7 @@ namespace ECS_Proto.Core.Render
             {
                 Transform t = rC.Transform;
                 RenderComp r = rC.Render;
-                consoleWindow.Write((int)t.Position.X, (int)t.Position.Y, r.Char, r.Foreground, r.Background);
+                consoleWindow.Write((int)t.Position.Y, (int)t.Position.X, r.Char, r.Foreground, r.Background);
             }
             consoleWindow.WindowUpdate();
         }

@@ -31,6 +31,7 @@ namespace ECS_Proto.Core
         {
             IComponent retComp = Activator.CreateInstance<T>();
             compList.Add(retComp);
+            retComp.baseObject = this;
             retComp.Start();
             return (T)retComp;
         }
@@ -39,8 +40,22 @@ namespace ECS_Proto.Core
         {
             IComponent retComp = Activator.CreateInstance(t) as IComponent;
             compList.Add(retComp);
+            retComp.baseObject = this;
             retComp.Start();
             return retComp;
+        }
+
+        public void RequireComponent(params Type[] t)
+        {
+
+        }
+
+        public T RequireComponent<T>() where T : IComponent
+        {
+            T comp = GetComponent<T>();
+            if (comp == null)
+                return AddComponent<T>();
+            return comp;
         }
 
         public bool HasComponent<T>()

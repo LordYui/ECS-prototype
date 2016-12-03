@@ -2,6 +2,7 @@
 using ECS_Proto.Core.Component;
 using ECS_Proto.Core.Render;
 using ECS_Proto.Game.Components;
+using ECS_Proto.Game.Components.Living;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,8 +17,8 @@ namespace ECS_Proto.Game
         static CompArchetype()
         {
             AddArchetype("Entity", typeof(RenderComp), typeof(Transform));
-            AddArchetype("Player", GetArchetypeComponent("Entity"));
-            AddArchetype("WorldObject", GetArchetypeComponent("Entity"));
+            AddArchetype("Player", BuildArchetypeHierarchy(new string[] { "Entity" }, typeof(Human)));
+            AddArchetype("WorldObject", BuildArchetypeHierarchy(new string[] { "Entity" }, typeof()));
             AddArchetype("Wall", BuildArchetypeHierarchy(new string[] { "WorldObject" }, typeof(Unmovable)));
             AddArchetype("Floor", BuildArchetypeHierarchy(new string[] { "WorldObject" }, typeof(Unmovable), typeof(Container)));
         }
@@ -26,6 +27,7 @@ namespace ECS_Proto.Game
         {
             compArchDict.Add(n, t);
         }
+
 
         private static Type[] BuildArchetypeHierarchy(string[] parents, params Type[] t)
         {

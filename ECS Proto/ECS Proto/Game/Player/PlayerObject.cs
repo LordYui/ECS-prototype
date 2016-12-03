@@ -24,30 +24,6 @@ namespace ECS_Proto.Game.Player
             this.Inject();
         }
 
-        void OnInject(InputManager input)
-        {
-            input.RegisterInput(this, 255);
-        }
-
-        void OnKeyDown(Key k)
-        {
-            switch (k)
-            {
-                case Key.D:
-                    transform.Position += new OpenTK.Vector2(1, 0);
-                    break;
-                case Key.S:
-                    transform.Position += new OpenTK.Vector2(0, 1);
-                    break;
-                case Key.Q:
-                    transform.Position += new OpenTK.Vector2(-1, 0);
-                    break;
-                case Key.Z:
-                    transform.Position += new OpenTK.Vector2(0, -1);
-                    break;
-            }
-        }
-
         float timer = 0;
         public override void Update(float delta)
         {
