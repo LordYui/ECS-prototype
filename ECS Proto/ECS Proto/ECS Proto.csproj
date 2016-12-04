@@ -76,7 +76,7 @@
     <Compile Include="Game\Components\WorldTile.cs" />
     <Compile Include="Game\GameManager.cs" />
     <Compile Include="Game\GameObjects\Floor.cs" />
-    <Compile Include="Game\GameObjects\Living\Internals.cs" />
+    <Compile Include="Game\Components\Living\Internals.cs" />
     <Compile Include="Game\GameObjects\Ship\Hull.cs" />
     <Compile Include="Game\GameObjects\Space.cs" />
     <Compile Include="Game\GUIManager.cs" />

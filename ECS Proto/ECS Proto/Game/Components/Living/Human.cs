@@ -12,8 +12,7 @@ namespace ECS_Proto.Game.Components.Living
     {
         public override void Start()
         {
-            Container cC = baseObject.RequireComponent<Container>();
-            cC.Content.Add(new InternalsObject());
+            Internals cC = baseObject.RequireComponent<Internals>();
         }
     }
 }
