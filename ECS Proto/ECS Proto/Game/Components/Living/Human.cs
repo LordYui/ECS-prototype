@@ -1,5 +1,4 @@
 ﻿using ECS_Proto.Core.Component;
-using ECS_Proto.Game.GameObjects.Living;
 using System;
 using System.Collections.Generic;
 using System.Linq;

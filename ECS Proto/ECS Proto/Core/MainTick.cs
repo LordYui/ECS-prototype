@@ -29,7 +29,7 @@ namespace ECS_Proto.Core
             Update();
         }
         double computedDeltaTime = 0;
-        double targetFPS = 1;
+        double targetFPS = 60;
         void Update()
         {
             while (true)

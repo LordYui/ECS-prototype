@@ -19,7 +19,7 @@ namespace ECS_Proto.Game.GameObjects.Ship
             mC.Name = "Ship hull";
             mC.Description = "Thick metal plates, just inbetween space and you.";
             Physic pC = this.GetComponent<Physic>();
-            pC.PassThrough = true;
+            pC.PassThrough = false;
             RenderComp rC = this.GetComponent<RenderComp>();
             rC.Char = '#';
         }

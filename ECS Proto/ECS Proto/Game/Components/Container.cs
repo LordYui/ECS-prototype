@@ -1,5 +1,6 @@
 ﻿using ECS_Proto.Core;
 using ECS_Proto.Core.Component;
+using ECS_Proto.Core.Render;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,6 +15,13 @@ namespace ECS_Proto.Game.Components
         public override void Start()
         {
             Content = new List<BaseObject>();
+        }
+
+        public void AddObject(BaseObject e)
+        {
+            Content.Add(e);
+            if (e.HasComponent<RenderComp>())
+                e.GetComponent<RenderComp>().Enabled = false;
         }
     }
 }

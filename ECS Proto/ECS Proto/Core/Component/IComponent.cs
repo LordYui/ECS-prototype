@@ -9,6 +9,7 @@ namespace ECS_Proto.Core.Component
     abstract class IComponent
     {
         public BaseObject baseObject;
+        public bool Enabled = true;
         public virtual void Start() { }
         public virtual void Update(float delta) { }
     }
