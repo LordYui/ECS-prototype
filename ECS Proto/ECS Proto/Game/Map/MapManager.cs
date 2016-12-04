@@ -34,7 +34,7 @@ namespace ECS_Proto.Game.Map
             return true;
         }
 
-        public BaseObject GetMapAtPos(Vector2 v)
+        public BaseObject GetObjectAtPos(Vector2 v)
         {
             foreach(BaseObject b in map)
             {
@@ -50,7 +50,7 @@ namespace ECS_Proto.Game.Map
         {
             if (v.X > map.GetLength(0) || v.Y > map.GetLength(1) || v.X < 0 || v.Y < 0)
                 throw new ArgumentOutOfRangeException();
-            BaseObject bTile = GetMapAtPos(v);
+            BaseObject bTile = GetObjectAtPos(v);
             BaseObject[] eTile = mapEntManager.getEntitiesAtPosition(v);
             return new Tile(bTile, eTile);
         }

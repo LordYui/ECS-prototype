@@ -23,6 +23,11 @@ namespace ECS_Proto.Game.Map
             return mapEntities.Where(mE => mE.GetComponent<Transform>().Position == v).ToArray();
         }
 
+        public T[] getEntitiesOfT<T>()
+        {
+            return mapEntities.Where(e => e is T).Cast<T>().ToArray();
+        }
+
         private void GameObjectManager_OnNewEntity(BaseObject[] b)
         {
             mapEntities.Clear();

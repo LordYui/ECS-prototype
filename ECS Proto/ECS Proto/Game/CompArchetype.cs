@@ -21,15 +21,14 @@ namespace ECS_Proto.Game
             AddArchetype("Player", BuildArchetypeHierarchy(new string[] { "Entity" }, typeof(Human)));
 
             AddArchetype("WorldObject", BuildArchetypeHierarchy(new string[] { "Entity" }, typeof(WorldTile)));
-            AddArchetype("Wall", BuildArchetypeHierarchy(new string[] { "WorldObject" }, typeof(Unmovable)));
-            AddArchetype("Floor", BuildArchetypeHierarchy(new string[] { "WorldObject" }, typeof(Unmovable), typeof(Container)));
+            AddArchetype("Wall", BuildArchetypeHierarchy(new string[] { "WorldObject" }));
+            AddArchetype("Floor", BuildArchetypeHierarchy(new string[] { "WorldObject" }, typeof(Container)));
         }
 
         private static void AddArchetype(string n, params Type[] t)
         {
             compArchDict.Add(n, t);
         }
-
 
         private static Type[] BuildArchetypeHierarchy(string[] parents, params Type[] t)
         {
