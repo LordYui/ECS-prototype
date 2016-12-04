@@ -1,15 +1,13 @@
 ﻿using ECS_Proto.Core;
-using ECS_Proto.Core.Component;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ECS_Proto.Game.Components
+namespace ECS_Proto.Game.GameObjects.Living
 {
-    class WorldTile : IComponent
+    class InternalsObject : BaseObject
     {
-        public virtual void OnEnter(BaseObject bO) { }
     }
 }

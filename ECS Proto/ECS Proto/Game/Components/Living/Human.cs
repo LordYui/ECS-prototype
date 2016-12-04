@@ -1,4 +1,5 @@
 ﻿using ECS_Proto.Core.Component;
+using ECS_Proto.Game.GameObjects.Living;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,5 +10,10 @@ namespace ECS_Proto.Game.Components.Living
 {
     class Human : IComponent
     {
+        public override void Start()
+        {
+            Container cC = baseObject.RequireComponent<Container>();
+            cC.Content.Add(new InternalsObject());
+        }
     }
 }
