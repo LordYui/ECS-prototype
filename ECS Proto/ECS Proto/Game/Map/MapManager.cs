@@ -48,8 +48,6 @@ namespace ECS_Proto.Game.Map
 
         public Tile GetTileAtPos(Vector2 v)
         {
-            if (v.X > map.GetLength(0) || v.Y > map.GetLength(1) || v.X < 0 || v.Y < 0)
-                throw new ArgumentOutOfRangeException();
             BaseObject bTile = GetObjectAtPos(v);
             BaseObject[] eTile = mapEntManager.getEntitiesAtPosition(v);
             return new Tile(bTile, eTile);

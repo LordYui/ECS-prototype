@@ -14,9 +14,10 @@ namespace ECS_Proto.Game.Player
             RenderComp r = this.GetComponent<RenderComp>();
             r.Char = '@';
             transform = GetComponent<Transform>();
+            transform.Position = new OpenTK.Vector2(29, 13);
             this.Inject();
         }
-
+        
         float timer = 0;
         public override void Update(float delta)
         {
