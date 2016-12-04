@@ -10,6 +10,6 @@ namespace ECS_Proto.Core.Component
     {
         public BaseObject baseObject;
         public virtual void Start() { }
-        public virtual void Update() { }
+        public virtual void Update(float delta) { }
     }
 }

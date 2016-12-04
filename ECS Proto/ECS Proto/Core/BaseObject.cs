@@ -27,6 +27,11 @@ namespace ECS_Proto.Core
             goManager.RegisterGameObject(this);
         }
 
+        public IComponent[] GetAllComponents()
+        {
+            return compList.ToArray();
+        }
+
         public T AddComponent<T>() where T : IComponent
         {
             IComponent retComp = Activator.CreateInstance<T>();

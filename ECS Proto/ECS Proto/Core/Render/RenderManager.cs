@@ -39,6 +39,7 @@ namespace ECS_Proto.Core.Render
                 RenderComp r = rC.Render;
                 consoleWindow.Write((int)t.Position.Y, (int)t.Position.X, r.Char, r.Foreground, r.Background);
             }
+
             // Draw UI on top
             foreach (UIRenderStruct rC in uiBuf)
             {

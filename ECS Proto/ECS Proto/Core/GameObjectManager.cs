@@ -33,7 +33,7 @@ namespace ECS_Proto.Core
         public RenderContract[] GetRenderers()
         {
             List<RenderContract> retCtrc = new List<RenderContract>();
-            Boolean updateEntBuf = false;
+            bool updateEntBuf = false;
             foreach (BaseObject b in goList)
             {
                 RenderComp r = b.GetComponent<RenderComp>();
@@ -74,6 +74,10 @@ namespace ECS_Proto.Core
             foreach (BaseObject g in goList)
             {
                 g.Update(delta);
+                foreach(IComponent iC in g.GetAllComponents())
+                {
+                    iC.Update(delta);
+                }
             }
             if(timerClear < 5 * 60)
             {

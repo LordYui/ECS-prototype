@@ -15,6 +15,7 @@ namespace ECS_Proto.Game
         MapManager mapManager;
         PlayerManager playerManager;
         InputManager inputManager;
+
         public override void Start()
         {
             mapManager = new Map.MapManager();
