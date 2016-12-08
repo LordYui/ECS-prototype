@@ -51,13 +51,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Core\GUI\Label.cs" />
-    <Compile Include="Core\GUI\GUIObject.cs" />
+    <Compile Include="Core\Component\GUIRender.cs" />
     <Compile Include="Core\Component\IComponent.cs" />
     <Compile Include="Core\BaseObject.cs" />
     <Compile Include="Core\Component\Physic.cs" />
     <Compile Include="Core\Component\Transform.cs" />
     <Compile Include="Core\GameObjectManager.cs" />
+    <Compile Include="Core\GUI\IMenu.cs" />
     <Compile Include="Core\GUI\UIManager.cs" />
     <Compile Include="Core\GUI\UIRenderStruct.cs" />
     <Compile Include="Core\Injector\DepInjector.cs" />
@@ -94,6 +94,9 @@
     <Content Include="map.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Game\UI\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

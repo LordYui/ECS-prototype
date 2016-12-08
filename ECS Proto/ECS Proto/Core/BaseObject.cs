@@ -53,11 +53,6 @@ namespace ECS_Proto.Core
             return retComp;
         }
 
-        public void RequireComponent(params Type[] t)
-        {
-
-        }
-
         public T RequireComponent<T>() where T : IComponent
         {
             T comp = GetComponent<T>();

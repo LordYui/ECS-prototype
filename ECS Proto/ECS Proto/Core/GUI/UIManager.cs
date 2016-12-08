@@ -1,6 +1,8 @@
-﻿using ECS_Proto.Core.Injector;
+﻿using ECS_Proto.Core.Component;
+using ECS_Proto.Core.Injector;
 using ECS_Proto.Core.Render;
 using ECS_Proto.Game.Input;
+using OpenTK;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,28 +13,31 @@ namespace ECS_Proto.Core.GUI
 {
     class UIManager : BaseObject
     {
-        List<BaseObject> uiList;
+        List<IMenu> uiList;
         public UIManager()
         {
             DepInjector.RegisterInjectable(this);
-            uiList = new List<BaseObject>();
+            uiList = new List<IMenu>();
 
             this.Inject();
         }
 
-        public UIRenderStruct[] GetRenderers()
+        public UIRenderStruct GetRenderer()
         {
-            List<UIRenderStruct> rC = new List<UIRenderStruct>();
-            foreach(BaseObject b in uiList)
+            foreach(IMenu b in uiList)
             {
-                //rC.Add(b.Write());
+                if (b.Open)
+                {
+                    return new GUI.UIRenderStruct(b.GetComponent<GUIRender>().Render, b.GetComponent<Transform>().Position);
+                }
             }
-            return rC.ToArray();
+            return new GUI.UIRenderStruct("", Vector2.Zero);
         }
 
         public void RegisterUIComp(BaseObject b)
         {
-
+            if(b is IMenu)
+                uiList.Add((IMenu)b);
         }
 
         void OnInject(InputManager inMngr)

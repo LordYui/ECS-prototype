@@ -39,7 +39,7 @@ namespace ECS_Proto.Core.Render
             if (playerTransform == null) // No camera yet
                 return;
             RenderContract[] renderBuf = goManager.GetRenderers();
-            UIRenderStruct[] uiBuf = uiManager.GetRenderers();
+            UIRenderStruct uiRender = uiManager.GetRenderer();
             
             ClearWindow();
             // Draw game
@@ -51,15 +51,13 @@ namespace ECS_Proto.Core.Render
                 int finalX = (int)t.Position.X - (int)playerTransform.Position.X + (60 / 2);
                 int finalY = (int)t.Position.Y - (int)playerTransform.Position.Y + (26 / 2);
 
-                if (finalY < 26)
+                if (finalY < 26 && finalX < 60)
                     consoleWindow.Write(finalY, finalX, r.Char, r.Foreground, r.Background);
             }
 
             // Draw UI on top
-            foreach (UIRenderStruct rC in uiBuf)
-            {
-                consoleWindow.Write((int)rC.Pos.Y, (int)rC.Pos.X, rC.Text, Color4.White);
-            }
+            consoleWindow.Write((int)uiRender.Pos.Y, (int)uiRender.Pos.X, uiRender.Text, Color4.White);
+
             consoleWindow.WindowUpdate();
         }
 
