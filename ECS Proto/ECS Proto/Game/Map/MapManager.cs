@@ -26,6 +26,8 @@ namespace ECS_Proto.Game.Map
         public bool IsPassThrough(Vector2 v, BaseObject caller = null)
         {
             Tile t = GetTileAtPos(v);
+            if (t.mapTile == null)
+                return false;
             if (!t.mapTile.GetComponent<Physic>().isPassThrough(caller))
                 return false;
             foreach (BaseObject b in t.entitiesOnTile)
@@ -49,7 +51,7 @@ namespace ECS_Proto.Game.Map
         public Tile GetTileAtPos(Vector2 v)
         {
             if (v.X > map.GetLength(0) || v.Y > map.GetLength(1) || v.X < 0 || v.Y < 0)
-                throw new ArgumentOutOfRangeException();
+                return new Tile(null, null);
             BaseObject bTile = GetMapAtPos(v);
             BaseObject[] eTile = mapEntManager.getEntitiesAtPosition(v);
             return new Tile(bTile, eTile);
