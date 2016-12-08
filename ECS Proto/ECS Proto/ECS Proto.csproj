@@ -72,14 +72,14 @@
     <Compile Include="Game\Components\Electrified.cs" />
     <Compile Include="Game\Components\Metadata.cs" />
     <Compile Include="Game\Components\Living\Human.cs" />
-    <Compile Include="Game\Components\Machine.cs" />
-    <Compile Include="Game\Components\Unmovable.cs" />
     <Compile Include="Game\Components\WorldTile.cs" />
     <Compile Include="Game\GameManager.cs" />
     <Compile Include="Game\GameObjects\Floor.cs" />
-    <Compile Include="Game\GameObjects\Living\Internals.cs" />
+    <Compile Include="Game\Components\Living\Internals.cs" />
     <Compile Include="Game\GameObjects\Ship\Hull.cs" />
     <Compile Include="Game\GameObjects\Space.cs" />
+    <Compile Include="Game\GameObjects\Wire.cs" />
+    <Compile Include="Game\GUIManager.cs" />
     <Compile Include="Game\Input\FocusManager.cs" />
     <Compile Include="Game\Input\InputFocusStruct.cs" />
     <Compile Include="Game\Input\InputManager.cs" />

@@ -10,6 +10,6 @@ namespace ECS_Proto.Game.Components
 {
     class WorldTile : IComponent
     {
-        public virtual void OnEnter(BaseObject bO) { }
+
     }
 }

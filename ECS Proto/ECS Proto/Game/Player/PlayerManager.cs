@@ -1,15 +1,9 @@
 ﻿using ECS_Proto.Core;
 using ECS_Proto.Core.Component;
 using ECS_Proto.Core.Injector;
-using ECS_Proto.Game.Input;
+using ECS_Proto.Core.Render;
 using ECS_Proto.Game.Map;
 using OpenTK;
-using OpenTK.Input;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ECS_Proto.Game.Player
 {
@@ -25,10 +19,11 @@ namespace ECS_Proto.Game.Player
             this.Inject();
         }
 
-        void OnInject(MapManager map)
+        void OnInject(MapManager map, RenderManager render)
         {
             mapManager = map;
-            playerInput = new Game.Player.PlayerInput(this);
+            playerInput = new PlayerInput(this);
+            render.SetPlayerTransform(Player.GetComponent<Transform>());
         }
 
         Transform plyT;

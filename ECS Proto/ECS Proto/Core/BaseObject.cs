@@ -96,7 +96,6 @@ namespace ECS_Proto.Core
                 }
             }
         }
-
     }
 
     static class BaseObjectE

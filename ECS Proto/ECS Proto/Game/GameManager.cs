@@ -15,10 +15,12 @@ namespace ECS_Proto.Game
         MapManager mapManager;
         PlayerManager playerManager;
         InputManager inputManager;
+        GUIManager guiManager;
 
         public override void Start()
         {
             mapManager = new Map.MapManager();
+            guiManager = new Game.GUIManager();
             inputManager = new Input.InputManager();
             playerManager = new Player.PlayerManager();
         }

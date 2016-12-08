@@ -38,7 +38,7 @@ namespace ECS_Proto.Core
             {
                 RenderComp r = b.GetComponent<RenderComp>();
                 Transform t = b.GetComponent<Transform>();
-                if (r != null)
+                if (r != null && r.Enabled)
                 {
                     retCtrc.Add(new RenderContract(t, r));
                     if (!entityBuffer.Contains(b))
@@ -76,7 +76,8 @@ namespace ECS_Proto.Core
                 g.Update(delta);
                 foreach(IComponent iC in g.GetAllComponents())
                 {
-                    iC.Update(delta);
+                    if(iC.Enabled)
+                        iC.Update(delta);
                 }
             }
             if(timerClear < 5 * 60)

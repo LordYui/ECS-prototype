@@ -13,5 +13,10 @@ namespace ECS_Proto.Game.Components
         float neededPower;
 
         float powerInput;
+        float powerOutput;
+
+        public float powerDistMult = 1;
+
+        public Func<float, float> OnPowerIn;
     }
 }

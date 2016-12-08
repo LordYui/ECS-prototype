@@ -7,6 +7,7 @@ using SunshineConsole;
 using ECS_Proto.Core.Component;
 using OpenTK.Graphics;
 using ECS_Proto.Core.GUI;
+using ECS_Proto.Core.Injector;
 
 namespace ECS_Proto.Core.Render
 {
@@ -14,11 +15,13 @@ namespace ECS_Proto.Core.Render
     {
         GameObjectManager goManager;
         UIManager uiManager;
+        Transform playerTransform;
         public ConsoleWindow consoleWindow;
         public RenderManager(GameObjectManager goM)
         {
             goManager = goM;
             consoleWindow = new ConsoleWindow(40, 60, "Test");
+            DepInjector.RegisterInjectable(this);
         }
 
         public void SetUIManager(UIManager manager)
@@ -26,8 +29,15 @@ namespace ECS_Proto.Core.Render
             uiManager = manager;
         }
 
+        public void SetPlayerTransform(Transform ply)
+        {
+            playerTransform = ply;
+        }
+
         public void Update()
         {
+            if (playerTransform == null) // No camera yet
+                return;
             RenderContract[] renderBuf = goManager.GetRenderers();
             UIRenderStruct[] uiBuf = uiManager.GetRenderers();
             
@@ -37,7 +47,12 @@ namespace ECS_Proto.Core.Render
             {
                 Transform t = rC.Transform;
                 RenderComp r = rC.Render;
-                consoleWindow.Write((int)t.Position.Y, (int)t.Position.X, r.Char, r.Foreground, r.Background);
+
+                int finalX = (int)t.Position.X - (int)playerTransform.Position.X + (60 / 2);
+                int finalY = (int)t.Position.Y - (int)playerTransform.Position.Y + (26 / 2);
+
+                if (finalY < 26)
+                    consoleWindow.Write(finalY, finalX, r.Char, r.Foreground, r.Background);
             }
 
             // Draw UI on top
