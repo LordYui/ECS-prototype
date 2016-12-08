@@ -57,9 +57,6 @@
     <Compile Include="Core\Component\Physic.cs" />
     <Compile Include="Core\Component\Transform.cs" />
     <Compile Include="Core\GameObjectManager.cs" />
-    <Compile Include="Core\GUI\IMenu.cs" />
-    <Compile Include="Core\GUI\UIManager.cs" />
-    <Compile Include="Core\GUI\UIRenderStruct.cs" />
     <Compile Include="Core\Injector\DepInjector.cs" />
     <Compile Include="Core\Input\InputBridge.cs" />
     <Compile Include="Core\MainTick.cs" />
@@ -79,7 +76,6 @@
     <Compile Include="Game\GameObjects\Ship\Hull.cs" />
     <Compile Include="Game\GameObjects\Space.cs" />
     <Compile Include="Game\GameObjects\Wire.cs" />
-    <Compile Include="Game\GUIManager.cs" />
     <Compile Include="Game\Input\FocusManager.cs" />
     <Compile Include="Game\Input\InputFocusStruct.cs" />
     <Compile Include="Game\Input\InputManager.cs" />
@@ -89,7 +85,6 @@
     <Compile Include="Game\Player\PlayerInput.cs" />
     <Compile Include="Game\Player\PlayerManager.cs" />
     <Compile Include="Game\Player\PlayerObject.cs" />
-    <Compile Include="Game\UI\MainMenu.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="map.txt">
