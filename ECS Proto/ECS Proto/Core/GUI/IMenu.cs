@@ -1,4 +1,5 @@
 ﻿using ECS_Proto.Core.Component;
+using ECS_Proto.Core.Injector;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,6 +15,7 @@ namespace ECS_Proto.Core.GUI
         public IMenu()
         {
             this.AddComponent<GUIRender>();
+            this.Inject(true);
         }
 
         void OnInject(UIManager uiMngr)

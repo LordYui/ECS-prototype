@@ -2,6 +2,7 @@
 using ECS_Proto.Core.Component;
 using ECS_Proto.Core.Render;
 using ECS_Proto.Game.Components;
+using OpenTK.Graphics;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,6 +23,7 @@ namespace ECS_Proto.Game.GameObjects.Ship
             pC.PassThrough = false;
             RenderComp rC = this.GetComponent<RenderComp>();
             rC.Char = '#';
+            rC.Foreground = Color4.LightGray;
         }
     }
 }

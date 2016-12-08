@@ -37,7 +37,10 @@ namespace ECS_Proto.Core.GUI
         public void RegisterUIComp(BaseObject b)
         {
             if(b is IMenu)
+            {
                 uiList.Add((IMenu)b);
+               ((IMenu)b).Start();
+            }
         }
 
         void OnInject(InputManager inMngr)

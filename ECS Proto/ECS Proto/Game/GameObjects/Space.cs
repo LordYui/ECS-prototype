@@ -1,5 +1,6 @@
 ﻿using ECS_Proto.Core;
 using ECS_Proto.Core.Render;
+using OpenTK.Graphics;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,7 +14,9 @@ namespace ECS_Proto.Game.GameObjects
         public override void Start()
         {
             this.AddComponentsFromArchetype("Floor");
-            GetComponent<RenderComp>().Char = '~';
+            RenderComp rC = GetComponent<RenderComp>();
+            rC.Char = '~';
+            rC.Foreground = Color4.DarkGray;
         }
     }
 }

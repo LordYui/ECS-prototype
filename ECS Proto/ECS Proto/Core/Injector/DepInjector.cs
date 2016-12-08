@@ -35,6 +35,8 @@ namespace ECS_Proto.Core.Injector
                         toInj.Add(o);
                 }
             }
+            if (toInj.Count != injMI.GetParameters().Length)
+                return;
             injMI.Invoke(g, toInj.ToArray());
         }
     }

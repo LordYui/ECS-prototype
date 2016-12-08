@@ -4,6 +4,7 @@ using ECS_Proto.Core.Injector;
 using ECS_Proto.Core.Render;
 using ECS_Proto.Game.Map;
 using OpenTK;
+using System;
 
 namespace ECS_Proto.Game.Player
 {
@@ -31,6 +32,7 @@ namespace ECS_Proto.Game.Player
         {
             if (mapManager.IsPassThrough(plyT.Position + targetPos, Player))
                 plyT.Position += targetPos;
+            Console.WriteLine(Player.GetComponent<Transform>().Position);
         }
 
         public override void Update(float delta)

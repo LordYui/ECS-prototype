@@ -89,15 +89,14 @@
     <Compile Include="Game\Player\PlayerInput.cs" />
     <Compile Include="Game\Player\PlayerManager.cs" />
     <Compile Include="Game\Player\PlayerObject.cs" />
+    <Compile Include="Game\UI\MainMenu.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="map.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Game\UI\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
